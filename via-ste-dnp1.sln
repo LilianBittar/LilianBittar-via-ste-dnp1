@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substring", "Lecture1\Subst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargestProductSeries", "Lecture2\LargestProductSeries\LargestProductSeries.csproj", "{AF59537E-18D3-4108-924D-E6CE452F0F48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Lecture2\Polymorphism\Polymorphism.csproj", "{4773E6AB-B4F8-486A-9921-7FAD31824EBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,7 @@ Global
 		{4126EA83-294D-4269-BB91-23431D94533E} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 		{87C73FA5-D968-4B10-AD94-E9781E117F20} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 		{AF59537E-18D3-4108-924D-E6CE452F0F48} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
+		{4773E6AB-B4F8-486A-9921-7FAD31824EBF} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -95,5 +98,9 @@ Global
 		{AF59537E-18D3-4108-924D-E6CE452F0F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF59537E-18D3-4108-924D-E6CE452F0F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF59537E-18D3-4108-924D-E6CE452F0F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4773E6AB-B4F8-486A-9921-7FAD31824EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4773E6AB-B4F8-486A-9921-7FAD31824EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4773E6AB-B4F8-486A-9921-7FAD31824EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4773E6AB-B4F8-486A-9921-7FAD31824EBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
