@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birdwatchers", "Lecture2\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentifyPalindromes", "Lecture2\IdentifyPalindromes\IdentifyPalindromes.csproj", "{2BED4DAC-6BD1-45D9-B192-40DF2E60F81D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KthLargestNumber", "Lecture2\KthLargestNumber\KthLargestNumber.csproj", "{87CAD980-9848-4DE7-9093-68077A60E9A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,7 @@ Global
 		{8855E919-D00B-4207-8208-56F3AC896BC5} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 		{0CCBD365-9DBB-4EBA-85B8-A766A53A18B5} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 		{2BED4DAC-6BD1-45D9-B192-40DF2E60F81D} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
+		{87CAD980-9848-4DE7-9093-68077A60E9A2} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -137,5 +140,9 @@ Global
 		{2BED4DAC-6BD1-45D9-B192-40DF2E60F81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BED4DAC-6BD1-45D9-B192-40DF2E60F81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BED4DAC-6BD1-45D9-B192-40DF2E60F81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CAD980-9848-4DE7-9093-68077A60E9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CAD980-9848-4DE7-9093-68077A60E9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CAD980-9848-4DE7-9093-68077A60E9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CAD980-9848-4DE7-9093-68077A60E9A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
