@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePerson", "Lecture1\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingNumbers", "Lecture1\PrintingNumbers\PrintingNumbers.csproj", "{3C74CB37-49DA-46FB-A714-05E7A5A48D59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathInSeparateNamespace", "Lecture1\MathInSeparateNamespace\MathInSeparateNamespace.csproj", "{D5047481-5C6A-4845-B1C2-DCD9C44C44D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,7 @@ Global
 		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 		{28C0604A-B09B-40C9-8570-61FF5A9BBC19} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 		{3C74CB37-49DA-46FB-A714-05E7A5A48D59} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
+		{D5047481-5C6A-4845-B1C2-DCD9C44C44D4} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -53,5 +56,9 @@ Global
 		{3C74CB37-49DA-46FB-A714-05E7A5A48D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C74CB37-49DA-46FB-A714-05E7A5A48D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C74CB37-49DA-46FB-A714-05E7A5A48D59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5047481-5C6A-4845-B1C2-DCD9C44C44D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5047481-5C6A-4845-B1C2-DCD9C44C44D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5047481-5C6A-4845-B1C2-DCD9C44C44D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5047481-5C6A-4845-B1C2-DCD9C44C44D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
