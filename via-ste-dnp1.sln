@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture4", "Lecture4", "{6C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiggestDifference", "Lecture1\BiggestDifference\BiggestDifference.csproj", "{5907036F-6BA5-4A84-8A9D-A17C336278FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayClumps", "Lecture1\ArrayClumps\ArrayClumps.csproj", "{F2ABFBEE-C7F5-41C2-A857-400F9B396A94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePerson", "Lecture1\SimplePerson\SimplePerson.csproj", "{28C0604A-B09B-40C9-8570-61FF5A9BBC19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,11 +30,21 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E5A4123D-0CC6-4D80-B85C-206A76F77BAD} = {CB564319-761A-480E-8831-2DBAA1450F2C}
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
+		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
+		{28C0604A-B09B-40C9-8570-61FF5A9BBC19} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2ABFBEE-C7F5-41C2-A857-400F9B396A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C0604A-B09B-40C9-8570-61FF5A9BBC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C0604A-B09B-40C9-8570-61FF5A9BBC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C0604A-B09B-40C9-8570-61FF5A9BBC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C0604A-B09B-40C9-8570-61FF5A9BBC19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
