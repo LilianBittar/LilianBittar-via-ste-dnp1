@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Lecture2\Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumsAndQuestionMarks", "Lecture2\SumsAndQuestionMarks\SumsAndQuestionMarks.csproj", "{D4AD8938-C92B-48EC-BB22-A59196DADD01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorsWaitingRoom", "Lecture2\DoctorsWaitingRoom\DoctorsWaitingRoom.csproj", "{8FE88178-BB1D-47C0-B8A8-436E441DA80F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,7 @@ Global
 		{AF59537E-18D3-4108-924D-E6CE452F0F48} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 		{4773E6AB-B4F8-486A-9921-7FAD31824EBF} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 		{D4AD8938-C92B-48EC-BB22-A59196DADD01} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
+		{8FE88178-BB1D-47C0-B8A8-436E441DA80F} = {812BCFD7-3333-421B-84BD-5255BFC254CF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -109,5 +112,9 @@ Global
 		{D4AD8938-C92B-48EC-BB22-A59196DADD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4AD8938-C92B-48EC-BB22-A59196DADD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4AD8938-C92B-48EC-BB22-A59196DADD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE88178-BB1D-47C0-B8A8-436E441DA80F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE88178-BB1D-47C0-B8A8-436E441DA80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE88178-BB1D-47C0-B8A8-436E441DA80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE88178-BB1D-47C0-B8A8-436E441DA80F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
