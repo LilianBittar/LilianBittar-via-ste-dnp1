@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatProgramClient", "Lectur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatProgramServer", "Lecture3\ChatProgramServer\ChatProgramServer.csproj", "{867C46A8-95FF-4052-A3C8-16E3F164E289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendingObjectClient", "Lecture3\SendingObjectClient\SendingObjectClient.csproj", "{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,7 @@ Global
 		{4BE6D256-AD87-4AF1-8A7F-67EA88619C88} = {31B30726-6607-48BD-B973-DC581B869C75}
 		{6D4EB288-D402-4133-A98E-81CB67FDB2F8} = {31B30726-6607-48BD-B973-DC581B869C75}
 		{867C46A8-95FF-4052-A3C8-16E3F164E289} = {31B30726-6607-48BD-B973-DC581B869C75}
+		{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF} = {31B30726-6607-48BD-B973-DC581B869C75}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -214,5 +217,9 @@ Global
 		{867C46A8-95FF-4052-A3C8-16E3F164E289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867C46A8-95FF-4052-A3C8-16E3F164E289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867C46A8-95FF-4052-A3C8-16E3F164E289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53BB60EA-1C2E-4D69-B657-FA0BB7D42EFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
