@@ -4,6 +4,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture7", "Lecture7", "{CB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedTodoWebAPI", "Lecture7\AdvancedTodoWebAPI\AdvancedTodoWebAPI.csproj", "{E5A4123D-0CC6-4D80-B85C-206A76F77BAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lecture1", "lecture1", "{83B91791-75AD-43D7-A5FE-8D34A0918A71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture2", "Lecture2", "{812BCFD7-3333-421B-84BD-5255BFC254CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture3", "Lecture3", "{31B30726-6607-48BD-B973-DC581B869C75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lekture4", "lekture4", "{C67F7030-C8F2-4900-85EE-6A96A9A7C465}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lecture5", "lecture5", "{9F6C9492-C317-4EE4-9721-4EEDB45E7F64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture4", "Lecture4", "{6C280694-5740-41A3-B404-140B8A14ADED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiggestDifference", "Lecture1\BiggestDifference\BiggestDifference.csproj", "{5907036F-6BA5-4A84-8A9D-A17C336278FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,5 +25,12 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E5A4123D-0CC6-4D80-B85C-206A76F77BAD} = {CB564319-761A-480E-8831-2DBAA1450F2C}
+		{5907036F-6BA5-4A84-8A9D-A17C336278FF} = {83B91791-75AD-43D7-A5FE-8D34A0918A71}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
