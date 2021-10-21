@@ -1,5 +1,5 @@
 ﻿using System;
-using MathLib;
+using MoreMath.MathLib;
 
 namespace MoreMath
 {

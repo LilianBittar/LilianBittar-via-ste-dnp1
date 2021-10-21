@@ -1,4 +1,5 @@
 ﻿using System;
+using MathInSeparateNamespace.MathLib;
 
 namespace MathInSeparateNamespace
 {

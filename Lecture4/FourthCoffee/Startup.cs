@@ -28,7 +28,6 @@ namespace FourthCoffee
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IProductsService, ProductsService>();
         }
 

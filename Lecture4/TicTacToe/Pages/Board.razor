@@ -1,0 +1,98 @@
+﻿@using TicTacToe.Helpers
+@page "/Board"
+
+@{
+    var gameStatus = Helper.CalculateGameStatus(values);
+    string status;
+    if (gameStatus == GameStatus.X_wins)
+    {
+        status = "Winner: X";
+    }
+    else if (gameStatus == GameStatus.O_wins)
+    {
+        status = "Winner: O";
+    }
+    else if (gameStatus == GameStatus.Draw)
+    {
+        status = "Draw !";
+    }
+    else
+    {
+        char nextPlayer = xIsNext ? 'X' : 'O';
+        status = $"Next player: {nextPlayer}";
+    }
+    <h3>@status</h3>
+}
+
+<button class="btn btn-primary" @onclick="PlayAgainHandler">
+    New game
+</button>
+
+
+<div class="board">
+    @for (int i = 0; i < 9; i++)
+    {
+        int squareNumber = i;
+        <Square @key=squareNumber
+                value=values[squareNumber]
+                ClickHandler="@(() => HandleClick(squareNumber))"/>
+    }
+</div>
+
+@code
+{
+    private bool xIsNext;
+    private char[] values = new char[9];
+    
+    
+    protected override void OnInitialized()
+    {
+        InitState();
+    }
+    private void PlayAgainHandler()
+    {
+        InitState();
+    }
+    private void InitState()
+    {
+        values = new char[9]
+        {
+            ' ', ' ', ' ',
+            ' ', ' ', ' ',
+            ' ', ' ', ' '
+        };
+        xIsNext = true;
+    }
+
+    private void HandleClick(int i)
+    {
+        if (values[i] != ' ')
+        {
+            return;
+        }
+        bool isGameFiniched = Helper.CalculateGameStatus(values) != GameStatus.NotYetFiniched;
+        if (isGameFiniched)
+        {
+            return;
+        }
+        bool xToPlay = xIsNext;
+        values[i] =xToPlay ? 'X' : 'O';
+        xIsNext = !xToPlay;
+    }
+}
+<style scoped>
+    .board {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: #0a8efa;
+        padding: 10px;
+        width: 200px;
+        height: 200px;
+        border-radius: 10%;
+    }
+    
+    button {
+      border-radius: 10%;
+      margin: 10px;
+    }
+</style>
