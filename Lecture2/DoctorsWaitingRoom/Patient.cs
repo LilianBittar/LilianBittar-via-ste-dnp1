@@ -1,8 +1,8 @@
-﻿namespace DoctorsWaitingRoom
+﻿using System;
+
+namespace DoctorsWaitingRoom
 {
-    public class Patient
-    {
-        class Patient{
+    class Patient{
             private int numberInQueue;
             private WaitingRoom waitingRoom;
 
@@ -21,5 +21,4 @@
 
             }
         }
-    }
 }
