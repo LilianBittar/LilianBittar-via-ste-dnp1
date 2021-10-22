@@ -1,0 +1,71 @@
+﻿@page "/Register"
+@using Assignment1.Models
+@using System.ComponentModel.DataAnnotations
+@using System.Text.RegularExpressions
+@using Assignment1.Authentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+
+<div class="container">
+    <div class="box">
+    <h1>Register</h1>
+        <input type="text" name="" placeholder="First Name" @bind-value="firstname">
+        <input type="text" name="" placeholder="Last Name" @bind-value="lastName">
+        <input type="text" name="" placeholder="Email" @bind-value="email">
+        <input type="password" name="" placeholder="Password" @bind-value="password">
+        <input type="password" name="" placeholder="Confirm Password" @bind-value="passwordConfirmation">
+        <input type="submit" name="" value="Register" @onclick="kaput">
+        <div style="color: red;"> @errormessage</div>
+    </div>
+</div>
+
+
+
+@code {
+    private string firstname;
+    private string lastName;
+    private string email;
+    private string password;
+    private string passwordConfirmation;
+    private string errormessage;
+
+    public void kaput()
+    {
+        if (string.IsNullOrWhiteSpace(firstname) || string.IsNullOrWhiteSpace(lastName) || firstname.Length is < 2 and < 50 || lastName.Length is < 2 and < 50)
+        {
+            errormessage = "The first name and the last name should be not empty, and in between 2 and 50";
+            return; 
+        }
+        if (string.IsNullOrWhiteSpace(email) || !(new EmailAddressAttribute().IsValid(email)))
+        {
+            errormessage = "Invalid email";
+            return;
+        }
+        if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(passwordConfirmation) || !(new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$").Match(password).Success)) {
+            errormessage = "Invalid password";
+             return;
+        }
+        if (!password.Equals(passwordConfirmation))
+        {
+            errormessage = "both password should match";
+            return;
+        }
+        if (((CustomAuthenticationStateProvider) AuthenticationStateProvider).IsEmailRegistered(email))
+        {
+            errormessage = "This email is already registered.";
+            return;
+        }
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).RegisterUser(new User()
+        {
+            UserFirstName = firstname,
+            UserLastName = lastName,
+            Email = email,
+            Password = password
+        });
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(email, password);
+        email = "";
+        password = "";
+        NavigationManager.NavigateTo("/");
+    }
+}

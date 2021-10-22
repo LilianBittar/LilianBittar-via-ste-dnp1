@@ -1,0 +1,152 @@
+﻿@page "/Adults"
+@using Assignment1.Data
+@using Assignment1.Models
+@using System.Collections
+@inject IAdultData FileContext
+
+
+
+<div class="page">
+    <p class="para">
+    Filter by user id: <input class="filter" type ="number" @oninput="@((arg ) => FilterById(arg))" />
+    Filter by name: <input class="filter" type ="text" @oninput="@((arg ) => FilterByName(arg))" />
+    Filter by age: <input class="filter" type ="text" @oninput="@((arg ) => FilterByAge(arg))"/>
+    Filter by sex: <input class="filter" type ="text" @oninput="@((arg ) => FilterBySex(arg))"/>
+</p>
+
+56
+@if (AdultToShow== null)
+{
+    <p>
+        <em>Loading..</em>
+    </p>
+} else if (!AdultToShow.Any())
+{
+    <p>
+        <em>No Adult List exit. Please add some.</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th><span class="oi oi-person" aria-hidden="true"></span> Person ID</th>
+                <th><span class="oi oi-copywriting" aria-hidden="true"></span>First name</th>
+                <th><span class="oi oi-copywriting" aria-hidden="true"></span>Last name</th>
+                <th><span class="oi oi-person" aria-hidden="true"></span>Hair color</th>
+                <th><span class="oi oi-eye" aria-hidden="true"></span>Eye color</th>
+                <th><span class="oi oi-infinity" aria-hidden="true"></span>Age</th>
+                <th><span class="oi oi-sort-ascending" aria-hidden="true"></span>Weight</th>
+                <th><span class="oi oi-resize-height" aria-hidden="true"></span>Height</th>
+                <th><span class="oi oi-yen" aria-hidden="true"></span>Sex</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in AdultToShow)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.HairColor</td>
+                <td>@item.EyeColor</td>
+                <td>@item.Age</td>
+                <td>@item.Weight</td>
+                <td>@item.Height</td>
+                <td>@item.Sex</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+</div>
+
+
+@code {
+
+    private IList<Adult> AllAdults;
+    private IList<Adult> AdultToShow;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllAdults = FileContext.GetAdults();
+        AdultToShow = AllAdults;
+    }
+
+    private void FilterById(ChangeEventArgs changeEventArgs)
+    {
+        int? FilterById = null;
+        try
+        {
+            FilterById = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {}
+        if (FilterById != null || FilterById < 1)
+        {
+            AdultToShow = AllAdults.Where(t => t.Id == FilterById).ToList();
+        }
+        else
+        {
+            AdultToShow = AllAdults;
+        }
+    }
+    
+    private void FilterByName(ChangeEventArgs changeEventArgs)
+    {
+        string? FilterByName = null;
+        try
+        {
+            FilterByName = changeEventArgs.Value.ToString();
+        }
+        catch (Exception e)
+        {}
+        if (FilterByName == null || FilterByName == "")
+        {
+            AdultToShow = AllAdults;
+            
+        }
+        else
+        {
+            AdultToShow = AllAdults.Where(t => (t.FirstName + " " + t.LastName).ToLowerInvariant().Contains(FilterByName.ToLower())).ToList();   
+        }
+    }
+    private void FilterByAge(ChangeEventArgs changeEventArgs)
+    {
+        int? FilterAge = null;
+        try
+        {
+            FilterAge = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {}
+        if (FilterAge != null || FilterAge < 1)
+        {
+            AdultToShow = AllAdults.Where(t => t.Age == FilterAge).ToList();
+        }
+        else
+        {
+            AdultToShow = AllAdults;
+        }
+    }
+    private void FilterBySex(ChangeEventArgs changeEventArgs)
+    {
+        string? FilterSex = null;
+        try
+        {
+            FilterSex = changeEventArgs.Value.ToString();
+        }
+        catch (Exception e)
+        {}
+        if (FilterSex == null || FilterSex == " ")
+        {
+            AdultToShow = AllAdults;
+        }
+        else
+        {
+            AdultToShow = AllAdults.Where(t => t.Sex.ToLower() == FilterSex.ToLower()).ToList();
+        }
+    }
+}

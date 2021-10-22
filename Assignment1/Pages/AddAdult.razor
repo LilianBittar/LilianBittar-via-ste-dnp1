@@ -1,0 +1,57 @@
+﻿@page "/AddAdult"
+@attribute [Authorize(Policy = "MustBeLogin")]
+@using Assignment1.Data
+@using Assignment1.Models
+@inject IAdultData FileContext
+@inject NavigationManager NavigationManager
+
+<h3>AddAdult</h3>
+
+<EditForm Model="@newAdultItem" OnValidSubmit="@AddNewAdult">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group"> Adult Id: <br/>
+        <InputNumber @bind-Value="newAdultItem.Id"/>
+    </div>
+    <div class="form-group"> Adult first name:  <br/>
+        <InputText @bind-Value="newAdultItem.FirstName"/>
+    </div>
+    <div class="form-group"> Adult last name: <br/>
+        <InputText @bind-Value="newAdultItem.LastName"/>
+    </div>
+    <div class="form-group"> Adult hair color: <br/>
+        <InputText @bind-Value="newAdultItem.HairColor"/>
+    </div>
+    <div class="form-group"> Adult eyes color: <br/>
+        <InputText @bind-Value="newAdultItem.EyeColor"/>
+    </div>
+    <div class="form-group"> Adult age: <br/>
+        <InputNumber @bind-Value="newAdultItem.Age"/>
+    </div>
+    <div class="form-group"> Adult weight: <br/>
+        <InputNumber @bind-Value="newAdultItem.Weight"/>
+    </div>
+    <div class="form-group"> Adult height: <br/>
+        <InputNumber @bind-Value="newAdultItem.Height"/>
+    </div>
+    <div class="form-group"> Adult Sex: <br/>
+        <InputText @bind-Value="newAdultItem.Sex"/>
+    </div>
+
+    <p class="actions">
+        <button class="btn btn-outline-light" type="submit">Create</button>
+    </p>
+    
+</EditForm>
+
+
+
+@code {
+    private Adult newAdultItem = new Adult();
+
+    private void AddNewAdult()
+    {
+        FileContext.AddAdult(newAdultItem);
+        NavigationManager.NavigateTo("/Adults");
+    }
+}
