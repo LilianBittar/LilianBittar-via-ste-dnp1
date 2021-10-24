@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdvancedTodoWebAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,9 +29,10 @@ namespace AdvancedTodoWebAPI
         {
 
             services.AddControllers();
+            services.AddScoped<ITodosService, TodoService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AdvancedTodoWebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "AdvancedTodoWebAPI", Version = "v1"});
             });
         }
 
