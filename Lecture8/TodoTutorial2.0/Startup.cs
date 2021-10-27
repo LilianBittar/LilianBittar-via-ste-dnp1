@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TodoTutorial2._0.Data;
 
+
 namespace TodoTutorial2._0
 {
     public class Startup
@@ -28,7 +29,7 @@ namespace TodoTutorial2._0
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<ITodoData, TodoJSONData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
