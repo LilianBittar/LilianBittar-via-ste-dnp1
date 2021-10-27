@@ -1,6 +1,6 @@
-﻿using Assignment1.Models;
+﻿using BlazorApp.Models;
 
-namespace Assignment1.Data
+namespace BlazorApp.Data
 {
     public interface IUserService
     {

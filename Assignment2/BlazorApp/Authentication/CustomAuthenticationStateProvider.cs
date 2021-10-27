@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Assignment1.Data;
-using Assignment1.Models;
+using BlazorApp.Data;
+using BlazorApp.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 

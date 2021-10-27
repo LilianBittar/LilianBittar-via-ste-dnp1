@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using Assignment1.Models;
+using BlazorApp.Models;
 
-namespace Assignment1.Data.Impl
+namespace BlazorApp.Data.Impl
 {
     public class InMemoryUserService : IUserService
     {
@@ -67,4 +66,4 @@ namespace Assignment1.Data.Impl
         }
         
     }
-}
+    }
