@@ -46,7 +46,7 @@ else {
                     <input type="checkbox" checked=@item.IsCompleted @onchange="@((arg) => CompletedChange(arg, item))"/>
                 </td>
                 <td>
-                    <button @onclick="@(() => RemoveTodo(item.TodoId))">
+                    <button @onclick="@(() =>  RemoveTodo(item.TodoId))">
                         <i class="oi oi-trash" style="color:red"/>
                     </button>
                 </td>
@@ -98,20 +98,21 @@ else {
     }
 
     protected override async Task OnInitializedAsync() {
-        allTodos = TodoData.GetTodos();
+        allTodos = await TodoData.GetTodosAsync();
         todosToShow = allTodos;
     }
 
-    private void RemoveTodo(int todoId) {
+    private async Task RemoveTodo(int todoId) 
+    {
         Todo todoToRemove = allTodos.First(t => t.TodoId == todoId);
-        TodoData.RemoveTodo(todoId);
+        await TodoData.RemoveTodoAsync(todoId);
         allTodos.Remove(todoToRemove);
         todosToShow.Remove(todoToRemove);
     }
 
-    private void CompletedChange(ChangeEventArgs evt, Todo todo) {
+    private async Task CompletedChange(ChangeEventArgs evt, Todo todo) {
         todo.IsCompleted = (bool) evt.Value;
-        TodoData.Update(todo);
+        await TodoData.UpdateAsync(todo);
     }
 
     private void Edit(int id) {

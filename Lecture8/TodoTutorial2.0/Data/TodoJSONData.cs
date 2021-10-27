@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using TodoTutorial2._0.Models;
 
 namespace TodoTutorial2._0.Data
@@ -33,34 +34,31 @@ namespace TodoTutorial2._0.Data
         }
 
 
-        public IList<Todo> GetTodos() {
+        public async Task <IList<Todo>> GetTodosAsync() {
             List<Todo> tmp = new List<Todo>(todos);
             return tmp;
         }
 
-        public void AddTodo(Todo todo) {
+        public async Task AddTodoAsync(Todo todo) {
             todo.TodoId = todos.Max(t => t.TodoId) + 1;
             todos.Add(todo);
             WriteTodosToFile();
         }
 
-        public void RemoveTodo(int todoId) {
+        public async Task RemoveTodoAsync(int todoId) {
             Todo toRemove = todos.First(t => t.TodoId == todoId);
             todos.Remove(toRemove);
             WriteTodosToFile();
         }
 
-        public void Update(Todo todo) {
+        public async Task UpdateAsync(Todo todo) {
             Todo toUpdate = todos.First(t => t.TodoId == todo.TodoId);
             toUpdate.IsCompleted = todo.IsCompleted;
             toUpdate.Title = todo.Title;
             WriteTodosToFile();
         }
 
-        public Todo Get(int id) {
-            return todos.FirstOrDefault(t => t.TodoId == id);
-        }
-
+      
         private void WriteTodosToFile() {
             string todosAsJson = JsonSerializer.Serialize(todos);
             File.WriteAllText(todoFile, todosAsJson);

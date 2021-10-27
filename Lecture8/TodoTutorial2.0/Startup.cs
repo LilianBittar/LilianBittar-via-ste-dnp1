@@ -29,7 +29,7 @@ namespace TodoTutorial2._0
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<ITodoData, TodoJSONData>();
+            services.AddSingleton<ITodoData, WebTodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
