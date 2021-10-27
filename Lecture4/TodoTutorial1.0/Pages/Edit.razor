@@ -1,0 +1,46 @@
+﻿@page "/Edit/{Id:int}"
+@using TodoTutorial1._0.Data
+@using TodoTutorial1._0.Models
+@using Microsoft.AspNetCore.Components
+@inject ITodoData TodoData
+@inject NavigationManager NavMgr
+
+<h3>Edit todo with id: @Id</h3>
+
+@if (todoToEdit == null) {
+    <em>Todo not found!</em>
+} else {
+    <EditForm Model="@todoToEdit" OnValidSubmit="@Save">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        <div class="form-group">
+            User Id:<br/>
+            <InputNumber @bind-Value="todoToEdit.UserId"/>
+        </div>
+        <div class="form-group">
+            Title:<br/>
+            <InputTextArea rows="4" @bind-Value="todoToEdit.Title"/>
+        </div>
+        <p class="actions">
+            <button class="btn btn-outline-dark" type="submit">Save</button>
+        </p>
+    </EditForm>
+}
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private Todo todoToEdit;
+
+    protected override async Task OnInitializedAsync() {
+        todoToEdit = TodoData.Get(Id);
+    }
+
+    private void Save() {
+        TodoData.Update(todoToEdit);
+        NavMgr.NavigateTo("/Todos");
+    }
+
+}
