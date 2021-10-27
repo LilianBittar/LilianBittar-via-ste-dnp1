@@ -6,82 +6,64 @@ using TodoTutorial1._0.Models;
 
 namespace TodoTutorial1._0.Data
 {
-    public class TodoJSONData : ITodoData
-    {
-
+   public class TodoJSONData : ITodoData {
         private string todoFile = "todos.json";
         private IList<Todo> todos;
 
-        public TodoJSONData()
-        {
-            if (!File.Exists(todoFile))
-            {
+        public TodoJSONData() {
+            if (!File.Exists(todoFile)) {
                 Seed();
-                string todoAsJson = JsonSerializer.Serialize(todos);
-                File.WriteAllText(todoFile, todoAsJson);
+                WriteTodosToFile();
             }
-            else
-            {
+            else {
                 string content = File.ReadAllText(todoFile);
                 todos = JsonSerializer.Deserialize<List<Todo>>(content);
             }
         }
-        
-        
-        public IList<Todo> GetTodos()
-        {
+
+        private void Seed() {
+            Todo[] ts = {
+                new Todo {UserId = 1, TodoId = 1, Title = "Do dishes", IsCompleted = false},
+                new Todo {UserId = 1, TodoId = 2, Title = "Walk the dog", IsCompleted = false},
+                new Todo {UserId = 2, TodoId = 3, Title = "Do DNP homework", IsCompleted = true},
+                new Todo {UserId = 3, TodoId = 4, Title = "Eat breakfast", IsCompleted = false},
+                new Todo {UserId = 4, TodoId = 5, Title = "Mow lawn", IsCompleted = true},
+            };
+            todos = ts.ToList();
+        }
+
+
+        public IList<Todo> GetTodos() {
             List<Todo> tmp = new List<Todo>(todos);
             return tmp;
         }
 
-        public void AddTodo(Todo todo)
-        {
+        public void AddTodo(Todo todo) {
+            todo.TodoId = todos.Max(t => t.TodoId) + 1;
             todos.Add(todo);
-            string todoAsJson = JsonSerializer.Serialize(todos);
-            File.WriteAllText(todoFile, todoAsJson);
+            WriteTodosToFile();
         }
 
-        private void Seed()
-        {
-            Todo[] ts =
-            {
-                new Todo
-                {
-                    UserId = 1,
-                    TodoId = 1,
-                    Title = "Do dishes",
-                    IsCompleted = false
-                },
-                new Todo
-                {
-                    UserId = 1,
-                    TodoId = 2,
-                    Title = "walk the dog",
-                    IsCompleted = false
-                },
-                new Todo
-                {
-                    UserId = 2,
-                    TodoId = 3,
-                    Title = "Do dnp homework",
-                    IsCompleted = true
-                },
-                new Todo
-                {
-                    UserId = 3,
-                    TodoId = 4,
-                    Title = "Eat breakfast",
-                    IsCompleted = false
-                },
-                new Todo
-                {
-                    UserId = 4,
-                    TodoId = 5,
-                    Title = "Mow lawn",
-                    IsCompleted = true
-                },
-            };
-            todos = ts.ToList();
+        public void RemoveTodo(int todoId) {
+            Todo toRemove = todos.First(t => t.TodoId == todoId);
+            todos.Remove(toRemove);
+            WriteTodosToFile();
+        }
+
+        public void Update(Todo todo) {
+            Todo toUpdate = todos.First(t => t.TodoId == todo.TodoId);
+            toUpdate.IsCompleted = todo.IsCompleted;
+            toUpdate.Title = todo.Title;
+            WriteTodosToFile();
+        }
+
+        public Todo Get(int id) {
+            return todos.FirstOrDefault(t => t.TodoId == id);
+        }
+
+        private void WriteTodosToFile() {
+            string todosAsJson = JsonSerializer.Serialize(todos);
+            File.WriteAllText(todoFile, todosAsJson);
         }
     }
 }
