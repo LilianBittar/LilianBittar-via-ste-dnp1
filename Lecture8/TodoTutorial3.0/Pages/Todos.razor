@@ -9,10 +9,12 @@
 <p>
     Filter by completed status:
     <select class="form-control selectpicker" @onchange="@((arg) => FilterByCompletedStatus(arg))" style="width:100px">
-        <option>Both</option>
         <option>False</option>
         <option>True</option>
     </select>
+</p>
+<p>
+    <button type="button" @onclick="ExecuteFilter">Filter</button>
 </p>
 @if (todosToShow == null) {
     <p>
@@ -66,42 +68,36 @@ else {
     private IList<Todo> todosToShow;
     private IList<Todo> allTodos;
 
-    private int? filterById;
-    private bool? filterByIsCompleted;
+    private int filterById;
+    private bool filterByIsCompleted;
 
     private void FilterByUserId(ChangeEventArgs changeEventArgs) {
-        filterById = null;
+        filterById = 1;
         try {
             filterById = int.Parse(changeEventArgs.Value.ToString());
         }
         catch (Exception e) {
     // ignored
         }
-        ExecuteFilter();
+       
     }
 
     private void FilterByCompletedStatus(ChangeEventArgs args) {
-        filterByIsCompleted = null;
+        filterByIsCompleted = false;
         try {
             filterByIsCompleted = bool.Parse(args.Value.ToString());
         }
         catch (Exception e) {
     // ignored
         }
-        ExecuteFilter();
     }
 
-    private void ExecuteFilter() {
-        todosToShow = allTodos.Where(t => (filterById != null && t.UserId == filterById || filterById == null) &&
-                                          (filterByIsCompleted != null && t.IsCompleted == filterByIsCompleted || filterByIsCompleted == null)).
-            ToList();
-    }
+    private async Task ExecuteFilter()
+    {
+        todosToShow = await TodoData.GetTodosAsync(filterById, filterByIsCompleted);
 
-    protected override async Task OnInitializedAsync() {
-        allTodos = await TodoData.GetTodosAsync();
-        todosToShow = allTodos;
     }
-
+    
     private async Task RemoveTodo(int todoId) 
     {
         Todo todoToRemove = allTodos.First(t => t.TodoId == todoId);

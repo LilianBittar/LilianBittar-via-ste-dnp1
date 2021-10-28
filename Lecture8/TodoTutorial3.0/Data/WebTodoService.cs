@@ -20,13 +20,16 @@ namespace TodoTutorial3._0.Data
             client = new HttpClient();
         }
         
-
-        public async Task<IList<Todo>> GetTodosAsync()
+        
+        public async Task<IList<Todo>> GetTodosAsync(int UserID, bool isCompleted)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync(uri + "/todos");
+            HttpResponseMessage responseMessage = await client.GetAsync($"{uri}/todos?userId={UserID}&completed={isCompleted.ToString().ToLower()}");
+            
+            
             if (!responseMessage.IsSuccessStatusCode)
                 throw new Exception("Error");
-
+            
+            
             string message = await responseMessage.Content.ReadAsStringAsync();
             
             List<Todo> result = JsonSerializer.Deserialize<List<Todo>>(message, new JsonSerializerOptions

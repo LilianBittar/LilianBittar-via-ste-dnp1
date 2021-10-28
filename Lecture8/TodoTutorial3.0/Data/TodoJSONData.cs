@@ -33,10 +33,14 @@ namespace TodoTutorial3._0.Data
             todos = ts.ToList();
         }
 
+        
 
-        public async Task <IList<Todo>> GetTodosAsync() {
+        public async Task<IList<Todo>> GetTodosAsync(int UserID, bool isCompleted)
+        {
             List<Todo> tmp = new List<Todo>(todos);
-            return tmp;
+
+            return tmp.Where(t => (t.UserId == UserID && t.IsCompleted == isCompleted)).ToList();
+           
         }
 
         public async Task AddTodoAsync(Todo todo) {
