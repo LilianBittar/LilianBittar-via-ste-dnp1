@@ -92,6 +92,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoTutorial1.0", "Lecture4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoTutorial3.0", "Lecture8\TodoTutorial3.0\TodoTutorial3.0.csproj", "{FD3C8936-987F-40D6-924A-E616EC46E8DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoWebAPI-withoutBlazor", "Lecture8\TodoWebAPI-withoutBlazor\TodoWebAPI-withoutBlazor.csproj", "{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -136,6 +138,7 @@ Global
 		{B07CCCC0-945B-4421-890B-182F60056DB0} = {8B8F54F5-D327-448E-ADDB-3AA7DF81811D}
 		{D8322E07-0023-4382-A396-6CADE90D7351} = {6C280694-5740-41A3-B404-140B8A14ADED}
 		{FD3C8936-987F-40D6-924A-E616EC46E8DF} = {8B8F54F5-D327-448E-ADDB-3AA7DF81811D}
+		{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E} = {8B8F54F5-D327-448E-ADDB-3AA7DF81811D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5907036F-6BA5-4A84-8A9D-A17C336278FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -286,5 +289,9 @@ Global
 		{FD3C8936-987F-40D6-924A-E616EC46E8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD3C8936-987F-40D6-924A-E616EC46E8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD3C8936-987F-40D6-924A-E616EC46E8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84CDB69-3CA9-4BDB-A9E7-ABE4B4E1237E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
