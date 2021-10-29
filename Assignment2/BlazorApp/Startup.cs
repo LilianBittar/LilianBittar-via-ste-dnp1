@@ -11,8 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorApp.Data;
-using BlazorApp.Data.Impl;
-using FileData;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Options;
 
@@ -33,8 +31,8 @@ namespace BlazorApp
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IAdultData, FileContext>();
-            services.AddScoped<IUserService, InMemoryUserService>();
+            services.AddSingleton<IAdultData, WebService>();
+            services.AddScoped<IUserService, WebService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 
             services.AddAuthorization(options =>

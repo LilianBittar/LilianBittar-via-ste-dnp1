@@ -43,15 +43,17 @@ namespace BlazorApp.Authentication
             return await Task.FromResult(new AuthenticationState(cachedClaimsPrincipal));
         }
 
-        public void ValidateLogin(string email, string password)
+        public async Task ValidateLogin(string email, string password)
         {
             Console.WriteLine("Validating log in");
+            
             if (string.IsNullOrEmpty(email)) throw new Exception("Enter email");
+            
             if (string.IsNullOrEmpty(password)) throw new Exception("Enter password");
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
-                User user = userService.ValisateUser(email, password);
+                User user = await userService.ValidateUser(email, password);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
@@ -64,11 +66,7 @@ namespace BlazorApp.Authentication
 
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
         }
-
-        public bool IsEmailRegistered(string email)
-        {
-            return userService.IsEmailRegistered(email);
-        }
+        
         public void Logout()
         {
             cachedUser = null;
@@ -91,9 +89,9 @@ namespace BlazorApp.Authentication
             return identity;
         }
 
-        public void RegisterUser(User user)
+        public async Task RegisterUser(User user)
         {
-            userService.RegisterUser(user);
+          await userService.RegisterUser(user);
         }
 
     }

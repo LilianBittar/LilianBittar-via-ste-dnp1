@@ -2,17 +2,20 @@
 @using BlazorApp.Data
 @using BlazorApp.Models
 @using System.Collections
-@inject IAdultData FileContext
+@inject IAdultData WebService
 
 
 
 <div class="page">
     <p class="para">
-    Filter by user id: <input class="filter" type ="number" @oninput="@((arg ) => FilterById(arg))" />
-    Filter by name: <input class="filter" type ="text" @oninput="@((arg ) => FilterByName(arg))" />
-    Filter by age: <input class="filter" type ="text" @oninput="@((arg ) => FilterByAge(arg))"/>
-    Filter by sex: <input class="filter" type ="text" @oninput="@((arg ) => FilterBySex(arg))"/>
-</p>
+        Filter by user id: <input class="filter" type ="number" @oninput="@((arg ) => FilterById_(arg))" />
+        Filter by name: <input class="filter" type ="text" @oninput="@((arg ) => FilterByName_(arg))" />
+        Filter by age: <input class="filter" type ="text" @oninput="@((arg ) => FilterByAge_(arg))"/>
+        Filter by sex: <input class="filter" type ="text" @oninput="@((arg ) => FilterBySex_(arg))"/>
+    </p>
+    <p>
+        <button type="button" @onclick="ExecuteFilter">Filter</button>
+    </p>
 
 56
 @if (AdultToShow== null)
@@ -66,87 +69,63 @@ else
 
 @code {
 
-    private IList<Adult> AllAdults;
+   
     private IList<Adult> AdultToShow;
 
-    protected override async Task OnInitializedAsync()
+ 
+    int? FilterById = null;
+    string? FilterByName = null;
+    int? FilterAge = null;
+    string? FilterSex = null;
+    
+    private void FilterById_(ChangeEventArgs changeEventArgs)
     {
-        AllAdults = FileContext.GetAdults();
-        AdultToShow = AllAdults;
-    }
-
-    private void FilterById(ChangeEventArgs changeEventArgs)
-    {
-        int? FilterById = null;
+        
         try
         {
             FilterById = int.Parse(changeEventArgs.Value.ToString());
         }
         catch (Exception e)
         {}
-        if (FilterById != null || FilterById < 1)
-        {
-            AdultToShow = AllAdults.Where(t => t.Id == FilterById).ToList();
-        }
-        else
-        {
-            AdultToShow = AllAdults;
-        }
+        
     }
     
-    private void FilterByName(ChangeEventArgs changeEventArgs)
+    private void FilterByName_(ChangeEventArgs changeEventArgs)
     {
-        string? FilterByName = null;
+        
         try
         {
             FilterByName = changeEventArgs.Value.ToString();
         }
         catch (Exception e)
         {}
-        if (FilterByName == null || FilterByName == "")
-        {
-            AdultToShow = AllAdults;
-            
-        }
-        else
-        {
-            AdultToShow = AllAdults.Where(t => (t.FirstName + " " + t.LastName).ToLowerInvariant().Contains(FilterByName.ToLower())).ToList();   
-        }
+        
     }
-    private void FilterByAge(ChangeEventArgs changeEventArgs)
+    private void FilterByAge_(ChangeEventArgs changeEventArgs)
     {
-        int? FilterAge = null;
+       
         try
         {
             FilterAge = int.Parse(changeEventArgs.Value.ToString());
         }
         catch (Exception e)
         {}
-        if (FilterAge != null || FilterAge < 1)
-        {
-            AdultToShow = AllAdults.Where(t => t.Age == FilterAge).ToList();
-        }
-        else
-        {
-            AdultToShow = AllAdults;
-        }
+        
     }
-    private void FilterBySex(ChangeEventArgs changeEventArgs)
+    private void FilterBySex_(ChangeEventArgs changeEventArgs)
     {
-        string? FilterSex = null;
+        
         try
         {
             FilterSex = changeEventArgs.Value.ToString();
         }
         catch (Exception e)
         {}
-        if (FilterSex == null || FilterSex == " ")
-        {
-            AdultToShow = AllAdults;
-        }
-        else
-        {
-            AdultToShow = AllAdults.Where(t => t.Sex.ToLower() == FilterSex.ToLower()).ToList();
-        }
+        
+    }
+    private async Task ExecuteFilter()
+    {
+        AdultToShow = await WebService.GetAdultsAsync(FilterById, FilterByName, FilterAge, FilterSex);
+
     }
 }

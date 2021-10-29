@@ -2,7 +2,7 @@
 @attribute [Authorize(Policy = "MustBeLogin")]
 @using BlazorApp.Data
 @using BlazorApp.Models
-@inject IAdultData FileContext
+@inject IAdultData WebService
 @inject NavigationManager NavigationManager
 
 <h3>AddAdult</h3>
@@ -51,7 +51,7 @@
 
     private void AddNewAdult()
     {
-        FileContext.AddAdult(newAdultItem);
+        WebService.AddAdultAsync(newAdultItem);
         NavigationManager.NavigateTo("/Adults");
     }
 }
