@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using BlazorApp.Models;
 
 namespace BlazorApp.Data.Impl
@@ -40,7 +41,7 @@ namespace BlazorApp.Data.Impl
             }
         }
 
-        public User ValisateUser(string Email, string Password)
+        public async Task<User> ValisateUser(string Email, string Password)
         {
             User first = users.FirstOrDefault(user => user.Email.Equals(Email));
             if (first == null)
@@ -60,7 +61,7 @@ namespace BlazorApp.Data.Impl
             return false;
         }
 
-        public void RegisterUser(User user)
+        public async Task RegisterUser(User user)
         {
             users.Add(user);
             SaveChanges();

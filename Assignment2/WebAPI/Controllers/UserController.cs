@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
            Console.WriteLine("Here");
            try
            {
-               var user = userService.ValisateUser(username, password);
+               var user =  userService.ValisateUser(username, password);
                return Ok(user);
            }
            catch (Exception e)

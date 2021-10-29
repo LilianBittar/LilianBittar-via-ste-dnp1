@@ -24,6 +24,7 @@ namespace WebAPI.Controllers
         public async Task<ActionResult<IList<Adult>>> GetAdultsAsync([FromQuery] int? adultId, [FromQuery] string name, [FromQuery] int? age, [FromQuery] string sex) {
             try {
                 IList<Adult> adults = await adultData.GetAdultsAsync(adultId, name, age, sex);
+                Console.WriteLine(adults.Count);
                 return Ok(adults);
             } catch (Exception e) {
                 Console.WriteLine(e);

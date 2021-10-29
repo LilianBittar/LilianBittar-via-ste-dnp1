@@ -54,7 +54,7 @@ namespace FileData
 
         public async Task<List<Adult>> GetAdultsAsync(int? id, string name, int? age, string sex)
         {
-            List<Adult> temp = new List<Adult>();
+            List<Adult> temp = new List<Adult>(Adults);
             if (id != null) temp = temp.Where(t => t.Id == id).ToList();
             if (name != null)
                 temp = temp.Where(t => (t.FirstName + " " + t.LastName).ToLowerInvariant().Contains(name.ToLower()))
