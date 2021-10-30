@@ -43,13 +43,7 @@ namespace FileData
                 outputFile.Write(jsonAdults);
             }
         }
-
-        public IList<Adult> GetAdults()
-        {
-            List<Adult> tmp = new List<Adult>(Adults);
-            return tmp;
-        }
-
+        
        
 
         public async Task<List<Adult>> GetAdultsAsync(int? id, string name, int? age, string sex)
