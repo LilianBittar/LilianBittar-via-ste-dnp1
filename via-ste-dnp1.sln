@@ -102,9 +102,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "Assignment2\Bl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture9", "Lecture9", "{77CAD970-2F92-4CDF-86F2-44A0E1EB2B15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{47EA42B9-CEF1-462C-BC9D-6E2FAC5AEFF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Lecture9\Library\Library.csproj", "{47EA42B9-CEF1-462C-BC9D-6E2FAC5AEFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoDataBase", "TodoDataBase\TodoDataBase.csproj", "{58FB0F9C-B858-4BA6-9D26-81C9E0D6A48C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoDataBase", "Lecture9\TodoDataBase\TodoDataBase.csproj", "{58FB0F9C-B858-4BA6-9D26-81C9E0D6A48C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
