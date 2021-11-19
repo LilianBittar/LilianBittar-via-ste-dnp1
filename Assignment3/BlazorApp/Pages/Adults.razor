@@ -1,0 +1,131 @@
+﻿@page "/Adults"
+@using BlazorApp.Data
+@using BlazorApp.Models
+@using System.Collections
+@inject IAdultData WebService
+
+
+
+<div class="page">
+    <p class="para">
+        Filter by user id: <input class="filter" type ="number" @oninput="@((arg ) => FilterById_(arg))" />
+        Filter by name: <input class="filter" type ="text" @oninput="@((arg ) => FilterByName_(arg))" />
+        Filter by age: <input class="filter" type ="text" @oninput="@((arg ) => FilterByAge_(arg))"/>
+        Filter by sex: <input class="filter" type ="text" @oninput="@((arg ) => FilterBySex_(arg))"/>
+    </p>
+    <p>
+        <button type="button" @onclick="ExecuteFilter">Filter</button>
+    </p>
+
+56
+@if (AdultToShow== null)
+{
+    <p>
+        <em>Loading..</em>
+    </p>
+} else if (!AdultToShow.Any())
+{
+    <p>
+        <em>No Adult List exit. Please add some.</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th><span class="oi oi-person" aria-hidden="true"></span> Person ID</th>
+                <th><span class="oi oi-copywriting" aria-hidden="true"></span>First name</th>
+                <th><span class="oi oi-copywriting" aria-hidden="true"></span>Last name</th>
+                <th><span class="oi oi-person" aria-hidden="true"></span>Hair color</th>
+                <th><span class="oi oi-eye" aria-hidden="true"></span>Eye color</th>
+                <th><span class="oi oi-infinity" aria-hidden="true"></span>Age</th>
+                <th><span class="oi oi-sort-ascending" aria-hidden="true"></span>Weight</th>
+                <th><span class="oi oi-resize-height" aria-hidden="true"></span>Height</th>
+                <th><span class="oi oi-yen" aria-hidden="true"></span>Sex</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in AdultToShow)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.HairColor</td>
+                <td>@item.EyeColor</td>
+                <td>@item.Age</td>
+                <td>@item.Weight</td>
+                <td>@item.Height</td>
+                <td>@item.Sex</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+</div>
+
+
+@code {
+
+   
+    private IList<Adult> AdultToShow;
+
+ 
+    int? FilterById = null;
+    string? FilterByName = null;
+    int? FilterAge = null;
+    string? FilterSex = null;
+    
+    private void FilterById_(ChangeEventArgs changeEventArgs)
+    {
+        
+        try
+        {
+            FilterById = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {}
+        
+    }
+    
+    private void FilterByName_(ChangeEventArgs changeEventArgs)
+    {
+        
+        try
+        {
+            FilterByName = changeEventArgs.Value.ToString();
+        }
+        catch (Exception e)
+        {}
+        
+    }
+    private void FilterByAge_(ChangeEventArgs changeEventArgs)
+    {
+       
+        try
+        {
+            FilterAge = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {}
+        
+    }
+    private void FilterBySex_(ChangeEventArgs changeEventArgs)
+    {
+        
+        try
+        {
+            FilterSex = changeEventArgs.Value.ToString();
+        }
+        catch (Exception e)
+        {}
+        
+    }
+    private async Task ExecuteFilter()
+    {
+        AdultToShow = await WebService.GetAdultsAsync(FilterById, FilterByName, FilterAge, FilterSex);
+
+    }
+}

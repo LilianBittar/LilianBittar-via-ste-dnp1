@@ -1,0 +1,18 @@
+[
+  {
+    "UserFirstName": "lil",
+    "UserLastName": "bit",
+    "Email": "bittarlily@gmail.com",
+    "Password": "Sally123",
+    "BirthYear": 1992,
+    "SecurityLevel": 0
+  },
+  {
+    "UserFirstName": "lili",
+    "UserLastName": "bit",
+    "Email": "Sally@gmail.com",
+    "Password": "Nicola123",
+    "BirthYear": 0,
+    "SecurityLevel": 0
+  }
+]
