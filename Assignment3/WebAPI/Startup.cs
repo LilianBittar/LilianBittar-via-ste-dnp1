@@ -31,8 +31,9 @@ namespace WebAPI
         {
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebAPI", Version = "v1"}); });
-            services.AddSingleton<IAdultData, FileContext>();
             services.AddScoped<IUserService, InMemoryUserService>();
+            services.AddDbContext<Adultcontext>();
+            services.AddScoped<IAdultData, sqliteAdultService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

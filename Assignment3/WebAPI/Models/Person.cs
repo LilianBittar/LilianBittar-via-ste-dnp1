@@ -4,7 +4,7 @@ namespace WebApp.Models
 {
     public class Person
     {
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than (1)")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than (1)"), Key]
         public int Id { get; set; }
         [Required, MaxLength(100)]
         public string FirstName { get; set; }
